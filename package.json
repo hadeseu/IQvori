@@ -1,7 +1,7 @@
 {
   "name": "iqvori",
   "productName": "IQvori",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "IQvori – Lernen mit Karteikarten, Testprüfungen und Spickzetteln",
   "author": "Fabian Emmer",
   "license": "UNLICENSED",
@@ -29,9 +29,21 @@
       "buildResources": "build",
       "output": "dist"
     },
-    "files": ["main.js", "preload.js", "app/**/*", "package.json"],
+    "files": [
+      "main.js",
+      "preload.js",
+      "app/**/*",
+      "package.json"
+    ],
     "win": {
-      "target": [{ "target": "nsis", "arch": ["x64"] }],
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
       "icon": "build/icon.ico",
       "artifactName": "IQvori-Setup.${ext}"
     },
@@ -43,19 +55,29 @@
       "shortcutName": "IQvori"
     },
     "mac": {
-      "target": ["dmg", "zip"],
+      "target": [
+        "dmg",
+        "zip"
+      ],
       "icon": "build/icon.png",
       "category": "public.app-category.education",
       "artifactName": "IQvori-${version}-mac.${ext}"
     },
     "linux": {
-      "target": ["AppImage"],
+      "target": [
+        "AppImage"
+      ],
       "icon": "build/icon.png",
       "category": "Education",
       "artifactName": "IQvori-${version}.${ext}"
     },
     "publish": [
-      { "provider": "github", "owner": "hadeseu", "repo": "IQvori", "releaseType": "release" }
+      {
+        "provider": "github",
+        "owner": "hadeseu",
+        "repo": "IQvori",
+        "releaseType": "release"
+      }
     ]
   }
 }
