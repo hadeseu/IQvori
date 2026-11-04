@@ -77,7 +77,10 @@ function createWindow() {
   win.loadFile(path.join(__dirname, "app", "index.html"));
   win.once("ready-to-show", () => {
     win.show();
-    if (app.isPackaged && autoUpdater) setTimeout(() => autoUpdater.checkForUpdates().catch(() => {}), 3000);
+    if (app.isPackaged && autoUpdater) {
+      setTimeout(() => autoUpdater.checkForUpdates().catch(() => {}), 3000);
+      setInterval(() => autoUpdater.checkForUpdates().catch(() => {}), 15 * 60 * 1000);
+    }
   });
   win.webContents.setWindowOpenHandler(({ url }) => { if (/^https:\/\//.test(url)) shell.openExternal(url); return { action: "deny" }; });
   win.webContents.on("will-navigate", (e, url) => { if (!url.startsWith("file://")) { e.preventDefault(); if (/^https:\/\//.test(url)) shell.openExternal(url); } });
